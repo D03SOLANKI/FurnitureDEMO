@@ -98,8 +98,8 @@ export const CatalogSlider: React.FC = () => {
               key={item.id}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: idx * 0.1 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.7, delay: idx * 0.1, ease: [0.22, 1, 0.36, 1] }}
               className="flex-none w-[300px] sm:w-[360px] md:w-[420px] snap-start group"
             >
               {/* Card Surface */}

@@ -88,10 +88,10 @@ export const ProjectsShowcase: React.FC = () => {
           {projects.map((proj, idx) => (
             <motion.div
               key={proj.id}
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 35 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-100px' }}
-              transition={{ duration: 0.9, delay: idx * 0.15 }}
+              viewport={{ once: true, amount: 0.15 }}
+              transition={{ duration: 0.7, delay: idx * 0.1, ease: [0.22, 1, 0.36, 1] }}
               className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center"
             >
               {/* Left Column: Project Editorial Copy & Detail Card */}

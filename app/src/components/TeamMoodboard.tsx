@@ -72,8 +72,8 @@ export const TeamMoodboard: React.FC = () => {
               key={member.name}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: idx * 0.1 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.7, delay: idx * 0.1, ease: [0.22, 1, 0.36, 1] }}
               className="group relative rounded-3xl overflow-hidden bg-white shadow-sm border border-[#392615]/10 flex flex-col cursor-pointer"
             >
               <div className="w-full aspect-[3/4] overflow-hidden bg-[#EAE6DF]">

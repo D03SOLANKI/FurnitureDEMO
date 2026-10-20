@@ -8,15 +8,22 @@ export const Navbar: React.FC = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 80) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
+      const scrollPos = (window as any).__lenis?.scroll ?? window.scrollY;
+      setScrolled(scrollPos > 120);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    const lenis = (window as any).__lenis;
+    if (lenis) {
+      lenis.on('scroll', handleScroll);
+    }
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (lenis) {
+        lenis.off('scroll', handleScroll);
+      }
+    };
   }, []);
 
   const scrollTo = (id: string) => {
@@ -47,13 +54,11 @@ export const Navbar: React.FC = () => {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out ${
-          scrolled
-            ? 'bg-[#392615] text-[#FAF9F6] py-3.5 px-6 md:px-12 shadow-2xl rounded-b-2xl'
-            : 'bg-transparent text-white pt-6 md:pt-8 pb-4 px-6 md:px-12'
-        }`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 pointer-events-none ${
+          scrolled ? 'text-[#392615]' : 'text-white'
+        } pt-6 md:pt-8 pb-4 px-6 md:px-12`}
       >
-        <div className="max-w-[1620px] mx-auto flex items-center justify-between">
+        <div className="max-w-[1620px] mx-auto flex items-center justify-between pointer-events-auto">
           {/* Left Brand + 6-dot menu icon */}
           <div className="flex items-center gap-4">
             <span
@@ -101,7 +106,7 @@ export const Navbar: React.FC = () => {
               onClick={() => scrollTo('contact')}
               className={`group flex items-center gap-2 rounded-full text-[13px] font-medium tracking-wide transition-all duration-300 cursor-pointer ${
                 scrolled
-                  ? 'border border-white/20 bg-white/5 hover:bg-white/15 px-5 py-2 text-white'
+                  ? 'border border-[#392615]/30 hover:border-[#392615] bg-white/60 hover:bg-[#392615] hover:text-white px-5 py-2 text-[#392615] backdrop-blur-md shadow-xs'
                   : 'border border-white/40 hover:border-white bg-black/10 hover:bg-black/20 px-6 py-2.5 text-white backdrop-blur-sm'
               }`}
             >

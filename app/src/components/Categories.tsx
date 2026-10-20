@@ -14,8 +14,8 @@ export const Categories: React.FC = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           className="text-center mb-12"
         >
           <span className="font-display text-base md:text-lg text-[#736557] font-normal tracking-tight">
@@ -29,8 +29,8 @@ export const Categories: React.FC = () => {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.1 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.7, delay: 0.05, ease: [0.22, 1, 0.36, 1] }}
             onMouseEnter={() => setActiveCategory('sofas')}
             onMouseLeave={() => setActiveCategory(null)}
             className="flex items-center gap-4 md:gap-8 group cursor-pointer"
@@ -62,8 +62,8 @@ export const Categories: React.FC = () => {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
             onMouseEnter={() => setActiveCategory('sidetables')}
             onMouseLeave={() => setActiveCategory(null)}
             className="flex items-center gap-4 md:gap-8 group cursor-pointer -ml-4 sm:-ml-12"
@@ -95,8 +95,8 @@ export const Categories: React.FC = () => {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.3 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
             onMouseEnter={() => setActiveCategory('chairs')}
             onMouseLeave={() => setActiveCategory(null)}
             className="group cursor-pointer"
@@ -114,8 +114,8 @@ export const Categories: React.FC = () => {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
             onMouseEnter={() => setActiveCategory('tables')}
             onMouseLeave={() => setActiveCategory(null)}
             className="flex items-center gap-4 md:gap-8 group cursor-pointer -mr-6 sm:-mr-16"
@@ -147,8 +147,8 @@ export const Categories: React.FC = () => {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.5 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.7, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
             onMouseEnter={() => setActiveCategory('dressing-room')}
             onMouseLeave={() => setActiveCategory(null)}
             className="group cursor-pointer"
@@ -166,8 +166,8 @@ export const Categories: React.FC = () => {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.6 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
             onMouseEnter={() => setActiveCategory('beds')}
             onMouseLeave={() => setActiveCategory(null)}
             className="flex items-center gap-4 md:gap-8 group cursor-pointer -ml-8 sm:-ml-20"

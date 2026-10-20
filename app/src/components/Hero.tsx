@@ -1,7 +1,11 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 
 export const Hero: React.FC = () => {
+  const { scrollY } = useScroll();
+  const yBg = useTransform(scrollY, [0, 800], [0, 160]);
+  const opacityHero = useTransform(scrollY, [0, 500], [1, 0.4]);
+
   const scrollTo = (id: string) => {
     const el = document.getElementById(id);
     if (el) {
@@ -18,13 +22,14 @@ export const Hero: React.FC = () => {
       id="hero"
       className="relative w-full h-screen min-h-[720px] flex flex-col justify-between overflow-hidden"
     >
-      {/* Background Image with subtle cinematic scale */}
+      {/* Background Image with subtle cinematic scale and scroll parallax */}
       <motion.div
         initial={{ scale: 1.05 }}
         animate={{ scale: 1 }}
         transition={{ duration: 1.8, ease: [0.16, 1, 0.3, 1] }}
-        className="absolute inset-0 z-0 bg-cover bg-center"
+        className="absolute inset-0 z-0 bg-cover bg-center will-change-transform"
         style={{
+          y: yBg,
           backgroundImage: `url('/assets/hero-bg.jpg')`,
         }}
       >
@@ -35,8 +40,11 @@ export const Hero: React.FC = () => {
       {/* Spacer for top navbar */}
       <div className="h-28" />
 
-      {/* Center / Lower Content Grid */}
-      <div className="relative z-10 max-w-[1620px] w-full mx-auto px-6 md:px-12 flex-1 flex flex-col justify-end pb-8">
+      {/* Center / Lower Content Grid with smooth scroll fade */}
+      <motion.div
+        style={{ opacity: opacityHero }}
+        className="relative z-10 max-w-[1620px] w-full mx-auto px-6 md:px-12 flex-1 flex flex-col justify-end pb-8"
+      >
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
           {/* Big Brand Title: Graft */}
           <div className="lg:col-span-7 select-none">
@@ -133,7 +141,7 @@ export const Hero: React.FC = () => {
             <span>↓</span>
           </button>
         </motion.div>
-      </div>
+      </motion.div>
     </section>
   );
 };

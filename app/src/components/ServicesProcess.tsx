@@ -96,8 +96,8 @@ export const ServicesProcess: React.FC = () => {
                 key={svc.num}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: idx * 0.08 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.6, delay: idx * 0.08, ease: [0.22, 1, 0.36, 1] }}
                 className="p-8 rounded-2xl bg-white border border-[#392615]/10 shadow-sm hover:border-[#956e4b]/40 hover:shadow-md transition-all group cursor-pointer"
               >
                 <span className="text-xs font-mono text-[#956e4b] font-medium tracking-wider block mb-4">
@@ -153,8 +153,8 @@ export const ServicesProcess: React.FC = () => {
                   key={st.step}
                   initial={{ opacity: 0, x: 20 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: i * 0.1 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{ duration: 0.6, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
                   className="flex items-start gap-6 pb-6 border-b border-[#392615]/10 last:border-b-0"
                 >
                   <div className="w-10 h-10 rounded-full bg-[#392615] text-white flex items-center justify-center font-mono text-sm font-medium shrink-0 shadow-sm">
