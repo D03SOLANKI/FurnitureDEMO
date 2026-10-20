@@ -1,0 +1,16 @@
+# Dependencies
+node_modules/
+app/node_modules/
+
+# Production build output
+dist/
+app/dist/
+
+# Raw video processing frames and slices
+frames/
+sections/
+clean_assets/
+
+# Verification screens (can keep or ignore, let's keep verification_screens)
+# Logs
+*.log
