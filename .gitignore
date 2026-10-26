@@ -10,6 +10,10 @@ app/dist/
 frames/
 sections/
 clean_assets/
+video_motion/
+verification_fixes/
+live_scroll_*.png
+find_lenis.py
 
 # Verification screens (can keep or ignore, let's keep verification_screens)
 # Logs
