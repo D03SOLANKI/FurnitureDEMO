@@ -1,0 +1,10 @@
+{
+  "name": "furnituredemo",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "postinstall": "npm install --prefix app",
+    "build": "npm run build --prefix app",
+    "start": "npm run preview --prefix app"
+  }
+}
